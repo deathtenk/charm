@@ -1,18 +1,20 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
+  author_id: 
   title: MyString
-  description: MyString
-  linked_url: MyString
+  description: MyText
+  linkedin_url: MyString
   facebook_url: MyString
   twitter_url: MyString
   github_url: MyString
   bitbucket_url: MyString
 
 two:
+  author_id: 
   title: MyString
-  description: MyString
-  linked_url: MyString
+  description: MyText
+  linkedin_url: MyString
   facebook_url: MyString
   twitter_url: MyString
   github_url: MyString

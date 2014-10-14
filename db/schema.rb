@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141014045608) do
+ActiveRecord::Schema.define(version: 20141014163908) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,32 +20,43 @@ ActiveRecord::Schema.define(version: 20141014045608) do
     t.string   "first_name"
     t.string   "last_name"
     t.string   "username"
-    t.string   "password"
     t.string   "email"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "blogs", force: true do |t|
+    t.integer  "author_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "blogs", ["author_id"], name: "index_blogs_on_author_id", using: :btree
 
   create_table "portfolios", force: true do |t|
+    t.integer  "author_id"
     t.string   "title"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "portfolios", ["author_id"], name: "index_portfolios_on_author_id", using: :btree
 
   create_table "posts", force: true do |t|
+    t.integer  "blog_id"
+    t.string   "title"
+    t.text     "body"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
+  add_index "posts", ["blog_id"], name: "index_posts_on_blog_id", using: :btree
+
   create_table "profiles", force: true do |t|
+    t.integer  "author_id"
     t.string   "title"
     t.text     "description"
-    t.string   "linked_url"
+    t.string   "linkedin_url"
     t.string   "facebook_url"
     t.string   "twitter_url"
     t.string   "github_url"
@@ -54,7 +65,10 @@ ActiveRecord::Schema.define(version: 20141014045608) do
     t.datetime "updated_at"
   end
 
+  add_index "profiles", ["author_id"], name: "index_profiles_on_author_id", using: :btree
+
   create_table "projects", force: true do |t|
+    t.integer  "portfolio_id"
     t.string   "icon_url"
     t.string   "name"
     t.text     "description"
@@ -62,5 +76,7 @@ ActiveRecord::Schema.define(version: 20141014045608) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "projects", ["portfolio_id"], name: "index_projects_on_portfolio_id", using: :btree
 
 end
