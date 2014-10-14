@@ -44,7 +44,7 @@ ActiveRecord::Schema.define(version: 20141014045608) do
 
   create_table "profiles", force: true do |t|
     t.string   "title"
-    t.string   "description"
+    t.text     "description"
     t.string   "linked_url"
     t.string   "facebook_url"
     t.string   "twitter_url"
@@ -57,7 +57,7 @@ ActiveRecord::Schema.define(version: 20141014045608) do
   create_table "projects", force: true do |t|
     t.string   "icon_url"
     t.string   "name"
-    t.string   "description"
+    t.text     "description"
     t.string   "github_url"
     t.datetime "created_at"
     t.datetime "updated_at"
