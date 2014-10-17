@@ -1,14 +1,25 @@
-<head> <script src="gen_validatorv4.js" type="text/javascript"></script> </head>
-
 <%= form_for(@author) do |f| %>
-  <h1>Register: </h1>
-    <%= f.label :email, "Email:" %>
+  <% if @author.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@author.errors.count, "error") %> prohibited this author from being saved:</h2>
+
+      <ul>
+      <% @author.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :email %><br>
     <%= f.text_field :email %>
-    <%= f.label :first_name, "First Name:" %>
-    <%= f.text_field :first_name %>
-    <%= f.label :last_name, "Last Name:" %>
-    <%= f.text_field :last_name %>
-    <%= f.label :username, "Desired Username:" %>
-    <%= f.text_field :username %>
-    <%= f.submit "Sign Up" %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
 <% end %>

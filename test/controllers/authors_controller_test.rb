@@ -16,14 +16,9 @@ class AuthorsControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  #TODO: figure out why this test isn't working
   test "should create author" do
     assert_difference('Author.count') do
-      post :create, author: { email: @author.email,
-                              first_name: @author.first_name,
-                              last_name: @author.last_name,
-                              username: @author.username}
-    #binding.pry
+      post :create, author: { email: @author.email, name: @author.name }
     end
 
     assert_redirected_to author_path(assigns(:author))
@@ -40,7 +35,7 @@ class AuthorsControllerTest < ActionController::TestCase
   end
 
   test "should update author" do
-    patch :update, id: @author, author: { email: @author.email }
+    patch :update, id: @author, author: { email: @author.email, name: @author.name }
     assert_redirected_to author_path(assigns(:author))
   end
 

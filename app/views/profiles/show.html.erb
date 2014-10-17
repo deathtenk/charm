@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @profile.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @profile.description %>
+</p>
+
+<p>
+  <strong>Linkedin url:</strong>
+  <%= @profile.linkedin_url %>
+</p>
+
+<p>
+  <strong>Facebook url:</strong>
+  <%= @profile.facebook_url %>
+</p>
+
+<p>
+  <strong>Twitter url:</strong>
+  <%= @profile.twitter_url %>
+</p>
+
+<p>
+  <strong>Github url:</strong>
+  <%= @profile.github_url %>
+</p>
+
+<p>
+  <strong>Bitbucket url:</strong>
+  <%= @profile.bitbucket_url %>
+</p>
+
+<%= link_to 'Edit', edit_profile_path(@profile) %> |
+<%= link_to 'Back', profiles_path %>

@@ -1,4 +1,4 @@
 json.array!(@authors) do |author|
-  json.extract! author, :id, :email, :username, :first_name, :last_name
+  json.extract! author, :id, :name, :email
   json.url author_url(author, format: :json)
 end
