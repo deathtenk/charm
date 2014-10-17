@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'pry'
 gem 'rails-erd'
 gem 'faker', '1.4.3'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
