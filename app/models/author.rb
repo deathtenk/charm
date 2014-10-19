@@ -5,4 +5,7 @@ class Author < ActiveRecord::Base
   has_one :blog
   has_many :posts, :through => :blog
 
+  validates :email, presence: true
+  validates :name, presence: true
+
 end
